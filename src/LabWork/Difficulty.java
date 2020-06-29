@@ -1,3 +1,5 @@
+package LabWork;
+
 import java.io.Serializable;
 /**
  * @author Кирилл Сокоркин R3137

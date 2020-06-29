@@ -1,7 +1,9 @@
+package Other;
+
 import java.io.Serializable;
 
 public class Command implements Serializable {
-    String description;
+    public String description;
     boolean need_smth;
     public Command(String description, boolean need_smth){
         this.description = description;

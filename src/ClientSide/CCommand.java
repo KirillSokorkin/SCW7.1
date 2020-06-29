@@ -1,3 +1,7 @@
+package ClientSide;
+
+import Other.*;
+import LabWork.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -41,29 +45,20 @@ public class CCommand {
         }
 
         System.out.println(">Введите координаты LabWork в целых числах через пробел");
-        double x;
-        float y;
-        String[] coords;
-        String coordinates;
+        String cord = in.nextLine();
         while (true) {
-            try {
-                coordinates = in.nextLine();
-                coords = coordinates.split(" ", 2);
-                x = Double.parseDouble(coords[0]);
-                y = Float.parseFloat(coords[1]);
-                break;
-            } catch (Exception e) {
-                System.out.println(">Что-то пошло не так. Повторите ввод координат");
-            }
+            System.out.println(cord);
+            if (!cord.isEmpty()) break;
+            System.out.println(">Координаты не могут быть пустой строкой. Введите имя ещё раз");
+            cord = in.nextLine();
         }
 
-        Coordinates newcoords = new Coordinates(x, y);
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String date = now.format(formatter);
 
-        System.out.println(">Введите Минимальный Балл за LabWork(целое число от 0 до 10) : ");
+        System.out.println(">Введите Минимальный Балл за LabWork(положительное число меньше 10) : ");
         long minimal_point;
         while (true) {
             try {
@@ -75,7 +70,7 @@ public class CCommand {
             }
         }
 
-        System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (целое число от 0 до 10): ");
+        System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (положительное число меньше 10): ");
         long personalQualitiesMinimum;
 
         while (true) {
@@ -119,7 +114,7 @@ public class CCommand {
             else break;
         }
 
-        LabWorkWrap lab = new LabWorkWrap(name, newcoords, minimal_point, personalQualitiesMinimum, description, difficulty);
+        LabWorkWrap lab = new LabWorkWrap(name, cord, minimal_point, personalQualitiesMinimum, description, difficulty);
 
         toServer.writeObject(new Command("add", true));
         toServer.writeObject(lab);
@@ -143,29 +138,20 @@ public class CCommand {
             }
 
             System.out.println(">Введите координаты LabWork в целых числах через пробел");
-            double x;
-            float y;
-            String[] coords;
-            String coordinates;
+            String cord = in.nextLine();
             while (true) {
-                try {
-                    coordinates = in.nextLine();
-                    coords = coordinates.split(" ", 2);
-                    x = Double.parseDouble(coords[0]);
-                    y = Float.parseFloat(coords[1]);
-                    break;
-                } catch (Exception e) {
-                    System.out.println(">Что-то пошло не так. Повторите ввод координат");
-                }
+                System.out.println(cord);
+                if (!cord.isEmpty()) break;
+                System.out.println(">Координаты не могут быть пустой строкой. Введите имя ещё раз");
+                cord = in.nextLine();
             }
 
-            Coordinates newcoords = new Coordinates(x, y);
 
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String date = now.format(formatter);
 
-            System.out.println(">Введите Минимальный Балл за LabWork(целое число от 0 до 10) : ");
+            System.out.println(">Введите Минимальный Балл за LabWork(положительное число меньше 10) : ");
             long minimal_point;
             while (true) {
                 try {
@@ -177,7 +163,7 @@ public class CCommand {
                 }
             }
 
-            System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (целое число от 0 до 10): ");
+            System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (положительное число меньше 10): ");
             long personalQualitiesMinimum;
 
             while (true) {
@@ -247,29 +233,19 @@ public class CCommand {
         }
 
         System.out.println(">Введите координаты LabWork в целых числах через пробел");
-        double x;
-        float y;
-        String[] coords;
-        String coordinates;
+        String cord = in.nextLine();
         while (true) {
-            try {
-                coordinates = in.nextLine();
-                coords = coordinates.split(" ", 2);
-                x = Double.parseDouble(coords[0]);
-                y = Float.parseFloat(coords[1]);
-                break;
-            } catch (Exception e) {
-                System.out.println(">Что-то пошло не так. Повторите ввод координат");
-            }
+            System.out.println(cord);
+            if (!cord.isEmpty()) break;
+            System.out.println(">Координаты не могут быть пустой строкой. Введите имя ещё раз");
+            cord = in.nextLine();
         }
-
-        Coordinates newcoords = new Coordinates(x, y);
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String date = now.format(formatter);
 
-        System.out.println(">Введите Минимальный Балл за LabWork(целое число от 0 до 10) : ");
+        System.out.println(">Введите Минимальный Балл за LabWork(положительное число меньше 10) : ");
         long minimal_point;
         while (true) {
             try {
@@ -281,7 +257,7 @@ public class CCommand {
             }
         }
 
-        System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (целое число от 0 до 10): ");
+        System.out.println(">Введите Минимальный балл Личностных качеств для LabWork (положительное число меньше 10): ");
         long personalQualitiesMinimum;
 
         while (true) {
@@ -325,7 +301,7 @@ public class CCommand {
             else break;
         }
 
-        LabWorkWrap lab = new LabWorkWrap(name, newcoords, minimal_point, personalQualitiesMinimum, description, difficulty);
+        LabWorkWrap lab = new LabWorkWrap(name, cord , minimal_point, personalQualitiesMinimum, description, difficulty);
 
         toServer.writeObject(lab);
         System.out.println(((Response) fromServer.readObject()).content);
